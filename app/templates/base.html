@@ -1,0 +1,16 @@
+
+<html>
+	<head>
+		{% if title %}
+			<title>{{title}}</title>
+		{% else %}
+			<title>Welcome To Default Title</title>
+		{% endif %}
+	</head>
+	<body>
+		<h1> Welcome! </h1>
+		{% block content %}
+		{% endblock %}
+		
+	</body>
+</html>
