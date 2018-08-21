@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request
-from app import app
+from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
@@ -46,7 +46,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
